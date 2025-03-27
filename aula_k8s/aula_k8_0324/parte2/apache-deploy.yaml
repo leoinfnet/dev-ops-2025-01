@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: aula
+  name: deploy-apache
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      camada: frontend
+  template:
+    metadata:
+      labels:
+        camada: frontend
+    spec:
+      containers:
+      - name: apache-pods
+        image: httpd:latest

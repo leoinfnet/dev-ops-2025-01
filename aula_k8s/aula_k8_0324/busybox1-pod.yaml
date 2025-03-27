@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  namespace: aula
+  name: busy1
+spec:
+  containers:
+  - name: busy-container-1
+    image: busybox
+    command: 
+    - /bin/sh
+    - c
+    - sleep 1d
+    volumeMounts:
+      - name: meu-volume
+        mountPath: /dados
+  volumes:
+  - name: meu-volume
+    persistentVolumeClaim:
+      claimName: simulador-pvc

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apache-pod
+  namespace: aula
+  labels:
+    app: database
+spec:
+  containers:
+  - image: httpd:latest
+    name: apache-container

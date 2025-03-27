@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: meu-pv
+  namespace: aula
+spec:
+  capacity:
+   storage: 200Mi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standart
+  hostPath: 
+    path: /Users/leonardogloria/Documents/Projetos/Infnet/pos-graduacao/devops/aula_k8s/aula_k8_0324/logs

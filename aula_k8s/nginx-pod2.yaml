@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod2
+  labels:
+    app: produtos
+    stage: homolog
+spec:
+  containers:
+  - image: nginx
+    name: nginx-container2

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: aula
+  name: pod-simulator
+spec:
+  containers:
+  - image: busybox
+    name: simulador-container
+    command:
+      - /bin/sh
+      - -c
+      - |
+        while true; do
+          echo "$(date) - Log gerado pela app" >> /var/log/simulador.log
+          sleep 5
+        done
+    volumeMounts:
+    - name: pvc-logs
+      mountPath: /var/log
+  volumes:
+  - name: log-volume
+    emptyDir: {}
+  - name: volume2
+    emptyDir: {}
+  - name: pvc-logs
+    persistentVolumeClaim:
+      claimName: simulador-pvc
+      
+
